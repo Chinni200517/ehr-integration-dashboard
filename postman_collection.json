@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "EHR Dashboard - DrChrono (example)",
+    "_postman_id": "e8d1a6b4-0000-4000-8000-000000000000",
+    "description": "Minimal example Postman collection for the assignment. Replace variables before use.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://drchrono.com/api"
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "OAuth2 - Authorization (manual)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/oauth/authorize?response_type=code&client_id={{client_id}}&redirect_uri={{callback}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "oauth",
+            "authorize"
+          ]
+        },
+        "description": "Open this URL in browser to perform Authorization Code flow (replace client_id and callback)."
+      }
+    },
+    {
+      "name": "Get Patients",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/patients?search=John",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "patients"
+          ],
+          "query": [
+            {
+              "key": "search",
+              "value": "John"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Appointment (example)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"patient\": 12345, \"doctor\": 67890, \"scheduled_time\": \"2025-10-01T10:00:00\"}"
+        },
+        "url": {
+          "raw": "{{base_url}}/appointments",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      }
+    }
+  ]
+}

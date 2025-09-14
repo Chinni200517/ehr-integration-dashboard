@@ -1,0 +1,18 @@
+Subject: EHR Integration Dashboard — Submission
+
+Hi [Recipient Name],
+
+Please find attached the final deliverable for the EHR Integration Dashboard assignment.
+I have included:
+- A Next.js TypeScript starter scaffold (server-side proxy + client hooks)
+- Implementation guide and API discovery document
+- Postman collection and example unit tests
+
+Download the ZIP here: [ATTACH ZIP OR INSERT LINK]
+
+Notes:
+- Replace placeholders in `.env.example` with your DrChrono/Epic credentials.
+- The project uses a proxy pattern—serverless API routes attach access tokens securely.
+
+Thanks,
+Chinni Krishna
